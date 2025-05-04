@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import { THEMES } from "../constants";
 import { useThemeStore } from "../store/useThemeStore";
 import { Send } from "lucide-react";
@@ -11,7 +12,7 @@ const SettingsPage = () => {
   const { theme, setTheme } = useThemeStore();
 
   return (
-    <div className="h-screen container mx-auto px-4 pt-20 max-w-5xl">
+    <div className="h-screen container mx-auto px-4 pt-20 max-w-5xl" data-theme={theme}>
       <div className="space-y-6">
         <div className="flex flex-col gap-1">
           <h2 className="text-lg font-semibold">Theme</h2>
@@ -57,7 +58,7 @@ const SettingsPage = () => {
                       J
                     </div>
                     <div>
-                      <h3 className="font-medium text-sm">John Doe</h3>
+                      <h3 className="font-medium text-sm">Humura Josue</h3>
                       <p className="text-xs text-base-content/70">Online</p>
                     </div>
                   </div>
@@ -109,8 +110,18 @@ const SettingsPage = () => {
             </div>
           </div>
         </div>
+        {/* Enhanced Contact Button */}
+        <div className="pt-10 text-center">
+          <Link
+            to="/contact"
+            className="inline-block px-6 py-3 bg-primary text-primary-content font-semibold rounded-lg shadow-md hover:bg-primary/90 transition-all duration-300 text-sm"
+          >
+            Go to Contact Page
+          </Link>
+        </div>
       </div>
     </div>
   );
 };
+
 export default SettingsPage;
